@@ -86,20 +86,28 @@ const Expertise = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: `+=${sections.length * 50}%`,
-          scrub: 4,
+          end: `+=${sections.length * 100}%`,
+          scrub: 1.2,
           pin: true,
+          anticipatePin: 1,
+          snap: {
+            snapTo: "labels",
+            duration: { min: 0.3, max: 0.6 },
+            delay: 0.2,
+            ease: "power2.inOut",
+          },
         }, // end scroll trigger
       }); //end first tl
 
       sections.forEach((section, index) => {
         if (index === 0) return;
 
+        tl.add(`section-${index}`);
+
         tl.to(
           section,
           {
             yPercent: 0,
-            duration: 0.3,
             ease: "power3.inOut",
           },
           index,
@@ -108,12 +116,9 @@ const Expertise = () => {
         tl.to(
           sections[index - 1],
           {
-            y: 150,
-            scale: 0.8,
-            opacity: 0.8,
-            yoyo: true,
-            zIndex: -1,
-            duration: 0.3,
+            y: 180,
+            scale: 0.9,
+            opacity: 0.5,
             transformOrigin: "top center",
             ease: "power3.inOut",
           },
