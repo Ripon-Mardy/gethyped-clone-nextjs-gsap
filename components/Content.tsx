@@ -80,13 +80,13 @@ const Content = () => {
   }; // end handle card mouse leave
 
   return (
-    <div className="container mx-auto py-16 ">
+    <div className="container mx-auto py-16 px-2">
       {/* content  */}
-      <div className="space-y-4 px-20">
-        <h2 className="text-7xl font-bold">
+      <div className="space-y-4 md:px-20">
+        <h2 className="text-3xl md:text-7xl font-bold">
           Content <br /> dat scoort.
         </h2>
-        <p className="text-xl font-semibold w-1/3">
+        <p className="text-xl font-semibold md:w-1/3">
           Wij vertellen jouw verhaal. Op een manier die écht past bij jouw
           doelgroep. Met creatieve content die werkt en het verschil maakt.
         </p>
@@ -99,7 +99,7 @@ const Content = () => {
       </div>
 
       {/* content cards  */}
-      <div className="space-y-5 grid grid-cols-3 gap-5 w-full px-16 mt-5">
+      <div className="space-y-5 grid md:grid-cols-3 gap-5 w-full px-16 mt-5">
         {contents.map((content, index) => (
           <div
             ref={(el) => {
@@ -109,7 +109,7 @@ const Content = () => {
             onMouseLeave={() => handleCardMouseLeave(index)}
             style={{ backgroundColor: content.bgColor }}
             key={index}
-            className={`relative w-80 h-100 rounded-2xl overflow-hidden cursor-pointer ${index === 1 ? "-mt-28" : index === 2 ? "-mt-48" : ""}`}
+            className={`relative max-w-80 h-100 rounded-2xl overflow-hidden cursor-pointer ${index === 1 ? "md:-mt-28" : index === 2 ? "md:-mt-48" : ""}`}
           >
             {/* image  */}
             <div className="cardImage absolute inset-0">

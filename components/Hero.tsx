@@ -158,18 +158,31 @@ const Hero = () => {
   };
 
   return (
-    <div className="container mx-auto py-12">
-      <div className="space-y-8">
-        <p className="text-8xl font-bold">
+    <div className="container mx-auto py-5 md:py-12 px-2 md:px-0 overflow-hidden">
+      {/* desktop titie  */}
+      <div className="space-y-8 hidden md:block">
+        <p className="text-4xl md:text-8xl font-bold">
           Get Hyped. Get <br /> Noticed. Get Results.
         </p>
         <p className="text-2xl font-semibold">
-          Klaar met gokken op content <br /> die niets oplevert?
+          Klaar met gokken op content die niets oplevert?
         </p>
       </div>
 
-      {/* cards  */}
-      <div className="flex items-center justify-start mt-10 rotate-1">
+      {/* mobile title  */}
+      <div className="md:hidden">
+        <h2 className="text-5xl font-semibold">Get Hyped.</h2>
+        <h2 className="text-5xl font-semibold"> Get Noticed.</h2>
+        <h2 className="text-5xl font-semibold">Get Results.</h2>
+        <p className="text-2xl font-semibold mt-5">
+          Klaar met gokken op content die niets oplevert?
+        </p>
+      </div>
+
+      {/* ===========
+      desktop cards 
+      ================= */}
+      <div className="hidden md:flex items-center justify-start mt-10 rotate-1 w-full">
         {cards.map((card, index) => {
           const lastIndex = cards.length - 1;
           if (card.type === "video") {
@@ -225,20 +238,79 @@ const Hero = () => {
         })}
       </div>
 
+      {/* ===========
+      mobile cards 
+      ================= */}
+      <div className="md:hidden flex items-center justify-start mt-10 rotate-1 w-full">
+        {cards.slice(0, 2).map((card, index) => {
+          const lastIndex = cards.length - 1;
+          if (card.type === "video") {
+            return (
+              <div
+                key={card.id}
+                ref={(el) => {
+                  cardRef.current[index] = el;
+                }}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+                className={`relative w-full p-4 rounded-4xl h-96 flex flex-col justify-between overflow-hidden ${
+                  index === lastIndex
+                    ? "-rotate-12"
+                    : index === 1
+                      ? "-rotate-10"
+                      : ""
+                }`}
+              >
+                <video
+                  src={card?.video}
+                  autoPlay
+                  loop
+                  muted
+                  className="h-96 w-full object-cover absolute left-0 top-0"
+                ></video>
+              </div>
+            );
+          }
+
+          return (
+            <div
+              key={card.id}
+              ref={(el) => {
+                cardRef.current[index] = el;
+              }}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              style={{ backgroundColor: card.bgColor }}
+              className={`w-full p-4 rounded-4xl h-96 flex flex-col justify-between  ${
+                index === 0 ? "rotate-3" : index === 2 ? "-rotate-6" : ""
+              }`}
+            >
+              <h2 className="text-5xl font-semibold">{card.title}</h2>
+
+              <div className="w-full">
+                <h2 className="text-2xl font-semibold">{card.subTitle}</h2>
+                <div className="bg-black w-full h-0.5 rounded-2xl my-2"></div>
+                <p>{card.text}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
       {/* paragraph  */}
-      <p className="text-5xl font-bold w-2/3 md:ml-20 mt-28">
+      <p className="text-2xl md:text-5xl font-bold md:w-2/3 md:ml-20 mt-28">
         Wij maken content die opvalt. Die blijft hangen. Die jouw doelgroep
         raakt en jouw merk in beweging brengt. Snel, krachtig en energiek.
       </p>
 
       {/* image banner bottom section  */}
-      <div className="mt-16 flex items-center justify-center gap-5">
-        <div className="w-100 rounded-xl overflow-hidden">
+      <div className="mt-16 space-y-5 md:space-y-0 md:flex items-center justify-center gap-5">
+        <div className="max-w-100 rounded-xl overflow-hidden">
           <Image src={image1} className="w-full" alt="image" />
         </div>
         {/* text  */}
-        <div className="relative ml-32">
-          <p className="w-1/2 text-2xl font-semibold">
+        <div className="relative md:ml-32">
+          <p className="md:w-1/2 text-2xl font-semibold">
             We stoppen niet bij mooie plaatjes en vette beelden. We maken het
             meetbaar. Zo weet je precies wat werkt en wat niet. Nooit meer
             content zonder strategie. Nooit meer content zonder resultaat.

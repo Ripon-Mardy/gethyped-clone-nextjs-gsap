@@ -4,9 +4,9 @@ body {
   @apply bg-[#FAF4EC];
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 ::selection {
   background-color: black;
