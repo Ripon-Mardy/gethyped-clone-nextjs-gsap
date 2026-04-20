@@ -86,7 +86,7 @@ const Brands = () => {
   }, []); // end useEffect
   return (
     <div className=" py-20 overflow-hidden">
-      <h2 className="container mx-auto text-5xl font-bold">
+      <h2 className="container mx-auto text-3xl md:text-5xl font-bold">
         These brands <br /> got hyped.
       </h2>
 
