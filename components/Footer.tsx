@@ -62,14 +62,14 @@ const Footer = () => {
 
       {/* bottom  */}
       <div
-        className=" md:flex space-y-5 md:space-y-0
-  md:items-end justify-between gap-2
+        className="md:flex space-y-5 md:space-y-0 w-full
+  items-end justify-between gap-2
   bg-[#EAE4D8] p-4 rounded-tl-md rounded-tr-md h-full md:h-64
   md:[clip-path:polygon(0_70%,100%_0%,100%_100%,0%_100%)]
 "
       >
         {/* logo    */}
-        <div className="w-36 mx-auto">
+        <div className="w-36 mx-auto md:mx-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="100%"

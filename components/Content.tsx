@@ -99,7 +99,7 @@ const Content = () => {
       </div>
 
       {/* content cards  */}
-      <div className="space-y-5 grid md:grid-cols-3 gap-5 w-full px-16 mt-5">
+      <div className="space-y-5 grid grid-cols-1 md:grid-cols-3 gap-5 w-full px-16 mt-5">
         {contents.map((content, index) => (
           <div
             ref={(el) => {
