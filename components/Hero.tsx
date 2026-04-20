@@ -305,7 +305,7 @@ const Hero = () => {
 
       {/* image banner bottom section  */}
       <div className="mt-16 space-y-5 md:space-y-0 md:flex items-center justify-center gap-5">
-        <div className="max-w-100 rounded-xl overflow-hidden">
+        <div className="w-100 rounded-xl overflow-hidden">
           <Image src={image1} className="w-full" alt="image" />
         </div>
         {/* text  */}
